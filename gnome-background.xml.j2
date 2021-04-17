@@ -1,0 +1,21 @@
+<background>
+  <starttime>
+    <year>2021</year>
+    <month>1</month>
+    <day>1</day>
+    <hour>0</hour>
+    <minute>0</minute>
+    <second>0</second>
+  </starttime>
+  {% for image in images %}
+  <static>
+    <duration>{{ static_duration }}</duration>
+    <file>{{ image }}</file>
+  </static>
+  <transition type="overlay">
+    <duration>{{ transition_duration }}</duration>
+    <from>{{ image }}</from>
+    <to>{{ loop.nextitem or images.0 }}</to>
+  </transition>
+  {% endfor %}
+</background>
